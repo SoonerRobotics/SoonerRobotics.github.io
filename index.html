@@ -1,64 +1,128 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sarah Brown</title>
+  <title>SCR Wiki</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
   <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
+    .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+
+    .jumbotron h1{
+    color: #fff;
+    }
   </style>
 </head>
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>ROBOTICS</h1>
+<div class="jumbotron text-center" style="margin-bottom:0; background:#b3003c">
+  <h1>HOW TO ROBOTICS</h1>
   <p></p> 
 </div>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Sarah Brown</a>
+      <a class="navbar-brand" href="http://www.ou.edu/scr/">SCR Website</a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="">link</a></li>
-        <!--<li><a href="#">Page 3</a></li>-->
-      </ul>
-    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+
+      <!-- general -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">General
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">The SCR Way</a></li>
+          <li><a href="#">New Member First Day</a></li>
+          <li><a href="#">Careers and Internships</a></li>
+          <li><a href="#">Design Strategy and Project Management</a></li>
+        </ul>
+      </li>
+
+      <!-- Robot Theory -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Robot Theory
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Control Theory</a></li>
+        </ul>
+      </li>
+
+      <!-- Software Resources -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Software Resources
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Robot Operating System (ROS)</a></li>
+          <li><a href="#">Arduino Libraries</a></li>
+          <li><a href="#">Linux Installation Guide</a></li>
+          <li><a href="#">Git</a></li>
+          <li><a href="#">Educational Resources</a></li>
+        </ul>
+      </li>
+
+      <!-- Electrical Resources -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Electrical Resources
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Electronics Design Process</a></li>
+          <li><a href="#">KiCAD Help</a></li>
+          <li><a href="#">Schematics</a></li>
+        </ul>
+      </li>
+
+      <!-- Mechanical Resources -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mechanical Resources
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">3D Printers</a></li>
+          <li><a href="#">Calculations</a></li>
+        </ul>
+      </li>
+      
+      <!-- Past Competitions -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Past Competitions
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">RoboMagellan</a></li>
+          <li><a href="#">IEEE</a></li>
+          <li><a href="#">Mercury</a></li>
+          <li><a href="#">Sumobot</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- <ul class="nav navbar-nav navbar-right">
+      <li><a href="mailto:scr@ou.edu"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact Us</a></li>
+      <li><a href="https://github.com/SoonerRobotics"><i class="fa fa-github" aria-hidden="true"> GitHub</a></li>
+    </ul> -->
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="https://github.com/SoonerRobotics"><span class="glyphicon glyphicon-tree-conifer"></span> GitHub</a></li>
+      <li><a href="mailto:scr@ou.edu"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
+    </ul>
   </div>
-</nav>
+</nav> 
 
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
       <h2></h2>
-      <img style = "width: 100%" src="assets\img\mainPic.png"></img>
-      <p></h3>
-          <a style = "font-size: 1em" href="assets\pdf\SarahBrownResume2019_2020.pdf">Resume</a>
-          <br>
-          <a style = "font-size: 1em" href="http://www.ou.edu/scr/">Sooner Competitive Robotics</a>
-
-      </ul>
-      <hr class="hidden-sm hidden-md hidden-lg">
+      <img style = "width: 100%" src="assets\SCR_banner.png"></img>
     </div>
     <div class="col-sm-8">
       <h2></h2>
-      <img style="width: 100%" src="assets\img\SCR_banner.png"></img>
-      <h3>Robotics</h3>
  
     </div>
   </div>
