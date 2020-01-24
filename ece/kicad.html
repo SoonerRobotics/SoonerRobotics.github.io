@@ -118,7 +118,33 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h2>KiCad</h2>
+      <h2>KiCad Overview</h2>
+      <h3>What is KiCAD?</h3>
+      <p>KiCAD is a tool we use to design circuits. We also use it to turn these circuits into printed circuit boards (PCBs).</p>
+      <h3>Why do we want to make PCBs?</h3>
+      <p>The reason we make PCBs is because PCBs are more robust than breadboarding or protoboarding; PCBs make it easier to manage cables, prevent loose connections, and prevent short circuits. On a robot, it is much better to have a solid PCB rather than a fragile nest of wires, as robots tend to have lots of vibrations and can crash into stuff - these things make it more likely for a fragile circuit to break. Additionally, with PCBs, most of the human error is frontloaded to the design process and can be corrected before the circuit goes onto the final robot (always review your PCB designs with another team member)</p>
+      <h3>Installing KiCAD</h3>
+      <p>Follow the instructions on the <a href="https://kicad-pcb.org/download/">KiCAD Downloads Page</a> for your specific operating system.</p>
+      <h3>KiCAD Basics</h3>
+      <h4>Schematics</h4>
+      <h4>Board</h4>
+      <h4>Symbols, Footprints</h4>
+      <h3>Adding SCR KiCAD Lib to your KiCad Environment</h3>
+      <ol>
+          <li>Clone the <a href="https://github.com/SoonerRobotics/SCR_KiCAD_Lib">SCR KiCAD Library</a> to a place you can find it.</li>
+          <li>Make sure you have the latest version of KiCAD installed. At the time of writing the latest version is 5.1.5 (1/15/2020)</li>
+          <li>Open KiCad</li>
+          <li>Navigate to Preferences > Manage Symbol Libraries... 4a. If this is the first time running KiCAD, choose to use the recommended settings on the popup that appears for setting up a global symbol table. This allows you to use all the default symbols in addition to our custom ones.</li>
+          <li></li>
+          <li>Click the "+" button in the bottom left of the Symbol Libraries page to add a row for the SCR KiCAD Library</li>
+          <li>In the new row you just created, name the library (SCR_KiCAD_Lib is recommended because it has no spaces).</li>
+          <li>Then click the library path box next to the name and click the folder button. Browse to the place you cloned SCR_KiCAD_Lib. Select the SCR_KiCAD_Lib.lib file and click OK. Also click OK to exit the Symbol Libraries configuration page</li>
+          <li>With the symbols needed for our schematics, we now turn our attention to the footprints used by the PCB design software. First, navigate to Preferences > Manage Footprint Libraries... 8a. If this is the first time running KiCAD, go with the recommended setting in the popup. This allows you to use all the default footprints alongside our footprints</li>
+          <li>Click the "+" button in the bottom left of the Footprint Libraries page to create a new row.</li>
+          <li>Name the library the same as what you named it in Step 6.</li>
+          <li>Click the cell next to the name, and then click the folder button. Navigate to where you cloned SCR_KiCAD_Lib, and then open the SCR_KiCAD_Lib.pretty folder. This is what you want to select.</li>
+          <li>Once you select the above path, click OK to exit the Footprint Libraries editor</li>
+      </ol>
       </div>
   </div>
 </div>
