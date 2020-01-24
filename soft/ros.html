@@ -119,6 +119,108 @@
   <div class="row">
     <div class="col-sm-12">
       <h2>Robot Operating System</h2>
+      <h3>Theory and Getting Started</h3>
+            <h4>What is ROS?</h4>
+              <p>ROS is a framework for developing software for robotic systems. It allows for parallel execution of many different programs, called nodes, that communicate with each other by publishing and subscribing to topics. ROS also comes with simulation tools, such as Gazebo and RViz, which help simulate an actual robot and help visualize sensor data (respectively).</p>
+            <h4>How does ROS work?</h4>
+              <p>ROS uses a publisher-subscriber (pub-sub) system to enable communication between parallel programs called nodes. Nodes can publish and subscribe to multiple topics. Shown below is an example of how ROS would work on an SCR robot:</p>
+              <img style = "width: 100%" src="Example-ROS-System.png"></img>
+              <p>The first thing you'll notice in the above image is all of the nodes. Some nodes take in sensor data (either through a topic like the collision avoidance node, or through electrical connection like the sensor fusion node). Nodes can output messages to a topic, like with the path planning node sending the next goal position to the navigation node. Nodes can run on embedded systems, like the arduino node, and can output commands to actuators.</p>
+              <p> Oftentimes, a device with a real-time operating system is used to collect sensor data, and then sends it to a sensor fusion system on a more powerful board. We do this in SCR as well, so instead of the sensor fusion node connecting directly to the sensors, it can communicate with an Arduino that sends it sensor data over one topic. The format of this data is called a message. Here is an example of a message:</p>
+              <code>
+                float64 gps_lat <br>
+                float64 gps_lon <br>
+                float64 vel <br>
+                float64 accel_x <br>
+                float64 heading <br>
+                float64 steer_ang <br>
+              </code>
+              <p>Message data is read by a subscriber node every time a topic gets a new message from a publisher node, so nodes don't have to wait on each other as much. This way, we can execute path planning activities (which are time consuming) without blocking the execution of navigation or obstacle avoidance (which both need to be quick so we don't crash).</p>
+            <h4>Why do we use ROS?</h4>
+              <p>There are a few reasons we use ROS:</p>
+              <h5>Parallel Execution</h5>
+                <p> Since ROS nodes all execute in parallel, we can develop modular code for handling specific tasks. For example, we can figure out where the robot is (localization) in parallel with planning a path. This is really powerful because it would be sub-optimal to figure out where you are, and THEN plan a path. Your robot would have to stop, figure out its location, plan and then move. With ROS, we can do that essentially all at once.</p>
+              <h5>Parallel Development</h5>
+                <p> Since all of these ROS nodes are their own programs, we can give project ownership to more than one software developer. Instead of writing one big application for the entire system, the process can be broken out into different parts and programmers can work on things aligned with their strengths or interests easier. In the above diagram, we can easily have five programmers working on five completely different components of the project without interfering with each other. At the same time, the software architecture gets adequate attention, because everything is set up in a distributed manner.</p>
+              <h5>Helpful Packages and Features</h5>
+                <p> ROS has a lot of default packages that speed up development time considerably. For example, RViz is a useful tool that comes with ROS that allows you to visualize perception data (camera/depth camera, LiDAR, etc.) in real time, and do advanced things like SLAM, which would otherwise require significant effort to implement on your own.</p>
+                <p> Additionally, there is a ton of community support for ROS. A lot of sensors have ROS drivers, and there are open source packages provided by the community to help do different things. If you ever run into trouble with something, you should see if there is a ROS package that can do it for you. There often is a package for the problem you are trying to solve.</p>
+              <h5>Industry Standard</h5>
+                <p> ROS is growing in adoption, and is becoming a go-to tool in the tech industry when it comes to automation and robotics. At SCR, we want to give our members the most important skills that will help them in their future careers. If you want to work on robot software professionally, ROS is a key framework to understand and be able to work within. Even if you are more interested in other areas of software development, ROS has other benefits, such as understanding the importance of software architecture.</p>
+            <h4>Who else uses ROS?</h4>
+              <p>The following is a non-exhaustive list of companies that use ROS.</p>
+              <ul>
+                <li>Amazon</li>
+                <li>Aurora</li>
+                <li>AutoX</li>
+                <li>Boston Dynamics</li>
+                <li>Clearpath Robotics</li>
+                <li>Cobalt Robotics</li>
+                <li>Cruise Automation</li>
+                <li>DoorDash</li>
+                <li>Exyn Technologies</li>
+                <li>FarmWise</li>
+                <li>Fetch Robotics</li>
+                <li>General Motors</li>
+                <li>Houston Mechatronics</li>
+                <li>Iris Automation</li>
+                <li>Kaarta</li>
+                <li>Locomation</li>
+                <li>Maidbot</li>
+                <li>Marble</li>
+                <li>Neato Robotics</li>
+                <li>NVIDIA</li>
+                <li>Open Robotics</li>
+                <li>Pick-it</li>
+                <li>RE2 Robotics</li>
+                <li>Samsung</li>
+                <li>Simbe Robotics</li>
+                <li>Torc Robotics</li>
+                <li>Udelv</li>
+                <li>Vecna Robotics</li>
+              </ul>
+              <p>Many robotics research institutions also use ROS</p>
+            <h4>Getting Started with ROS</h4>
+              <p>To get started using ROS, it is best to install it(see below). Then, with the above concepts in mind, take a look at the following tutorials and resources to get started learning ROS:</p>
+              <h5>List of ROS Tutorials and References</h5>
+                <dl>
+                  <dt>ROS Tutorials: <a href ="http://wiki.ros.org/ROS/Tutorials"> ROS/Tutorials - ROS Wiki</a></dt>
+                    <dd>Make sure to follow the catkin part of the build process, as that is the most recent build tool</dd>
+                    <dd>Also, there are some good code examples for writing publishers, subscribers, services, and much more</dd>
+                  <dt>CS 4023 - Intro to Intelligent Robotics: <a href="http://www.cs.ou.edu/~hougen/classes/Spring-2019/Robotics/">CS 4023/5023 - Intro to Intelligent Robotics - Spring 2019</a></dt>
+                    <dd>If you want to learn ROS, the best way is by doing a project in it. Try to do Project 1 (located in Assignments) and if you can get that to work, then you'll be on your way to being a master of ROS</dd>
+                    <dd>You'll need to use <a href="http://www.cs.ou.edu/~hougen/classes/Spring-2019/Robotics/materials/homework2.html">Homework 2</a> to help get the turtlebot stuff set up correctly</dd>
+                    <dd>Reference the project1 branch of the Yeetbotics code if you run into difficulty</dd>
+                  <dt>Yeetbotics D*Lite: GitHub - jkleiber/intro_robotics_ws: Intro to Intelligent... </dt>
+                    <dd>This was a class project for CS 4023 - Intro to Intelligent Robotics. It is a ROS project and you can see how it is set up to get inspiration for your own things</dd>
+                    <dd>If you take this class in the future, make sure to cite this code if you use it, or else you will get flagged for academic misconduct</dd>
+                  <dt>ROS C++ Style Guide: <a href="http://wiki.ros.org/CppStyleGuide">CppStyleGuide - ROS Wiki </a></dt>
+                </dl>
+            <h4>Official SCR ROS Getting Started Tutorial Assignment</h4>
+              <p>Coming soon!</p>
+    <h3>Installation</h3>
+    <h4>Installation Basics</h4>
+      <p>As of 2019 in SCR, we use ROS Melodic (In the past we used ROS Kinetic). To install this, you'll need a Linux OS - a lot of our members have experience with Ubuntu, so the choice operating system for ROS Melodic will be Ubuntu 18.04</p>
+      <p>Details about how to install <a href="http://wiki.ros.org/melodic/Installation/Ubuntu"> ROS Melodic are on the ROS website.</a> Check out the <a href="https://soonerrobotics.github.io/soft/linux.html">Linux Dual Booting guide</a> for help with Linux installations if you haven't dual booted your computer before.</p>
+    <h4>Legacy Instructions</h4>
+      <p>We used to use ROS Kinetic, but once ROS Melodic got enough traction to support all the ROS packages we like, we made the switch to the newer version. The below instructions are out of date, but still can be useful for personal projects or understanding how we use ROS</p>
+    <h4>Installing ROS Kinetic on the Raspberry Pi</h4>
+      <h5>Raspbian Strech Image w/ ROS and OpenCV</h5>
+        <p><a href="https://medium.com/@rosbots/ready-to-use-image-raspbian-stretch-ros-opencv-324d6f8dcd96"></a>Here is a link</a> that will lead you to an image for installing ROS Kinetic on a raspberry pi. It also has a guide, which is linked further below.</p>
+      <h5>Installation Instructions Link</h5>
+        <p><a href="https://github.com/ROSbots/rosbots_setup_tools">This is the link</a> to instructions on how to install the above image. Read below to understand how to do particular steps in the process</p>
+        <ul>
+          <li>Use dd if="location-of-rosbots-info-file.img" of="/dev/xyz" to install the image to SD card. This might take a while and there probably won't be any output until it's done</li>
+          <li>Add a file named "ssh" to the boot partition after the above installation completes</li>
+          <li>Boot up like the instructions say</li>
+          <li>To connect to the pi, use an ethernet cable. On Ubuntu, click on the wifi icon and click Edit Connections.... Find the Wired Connection and edit it. Change the IPv4 setting from Automatic (DHCP) to Shared to other computers.</li>
+          <li>Next, we need to find the IP address. Do this by running the arp command on Ubuntu (install if needed).</li>
+          <li>Follow the link's instructions from step 6 onwards</li>
+          <li>Stop before you get to the "Setting up a new Raspberry Pi" step. Only read that if you want to make your own image or something</li>
+        </ul>
+      <h3>Helpful Packages and Cheatsheet</h3>
+            <h4>Package List</h4>
+            <h4>Cheatsheet</h4>
       </div>
   </div>
 </div>
