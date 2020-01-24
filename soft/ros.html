@@ -220,7 +220,26 @@
         </ul>
       <h3>Helpful Packages and Cheatsheet</h3>
             <h4>Package List</h4>
+              <p>ROS has many helpful packages for our robots. When you find one that is cool, just list it below! Also, please post a link if the package is hard to find by its name</p>
+              <ul>
+                <li>rosserial - package for serial communication across devices</li>
+              </ul>
             <h4>Cheatsheet</h4>
+              <p>ROS has a lot of terminal commands, some of which are **extremely useful **for debugging. A list of the most useful ones is below, along with a short description of what they do.</p>
+              <h5>Regular ROS commands</h5>
+              <ul>
+                  <li>roscore - starts a master session of ROS</li>
+                  <li> roslaunch - starts a master session of ROS, while also launching a particular launch file (which acts as a script to launch the many nodes in a program)</li>
+              </ul>
+              <h5>Elite Debugging Commands</h5>
+                <dl>
+                  <dt> rqt_graph - shows a diagram of all the nodes and topics currently running, as well as how they are connected, if they are a dead sink, or if they are not even being used</dt>
+                  <dt> rostopic - gets topic information from the ROS master </dt>
+                    <dd> rostopic list - shows a list of all the topics currently running</dd>
+                    <dd>rostopic show [topic] -  shows the message a specific topic has</dd>
+                  <dt> rosnode - gets node information from the ROS master </dt>
+                    <dd>rosnode list - shows a list of all the nodes currently running</dd>
+                </dl>
       </div>
   </div>
 </div>
